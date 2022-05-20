@@ -68,14 +68,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return (string) $this->email;
     }
 
+    public static function listRoles(){
+
+        return ['ROLE_ADMIN'=>'admin','ROLE_USER'=>'user'];
+
+    }
+
     /**
      * @see UserInterface
      */
     public function getRoles(): array
     {
         $roles = $this->roles;
-        $roles[] = 'ROLE_ADMIN';
-        $roles[] = 'ROLE_USER';
+        /*$roles[] = 'ROLE_ADMIN';
+        $roles[] = 'ROLE_USER';*/
 
         return array_unique($roles);
     }
